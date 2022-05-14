@@ -1,17 +1,14 @@
 
-import Helper.bytesOutput
-import Helper.console
-import Helper.printStreamNew
 import org.junit.*
-
 import org.junit.Assert.*
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-
+import java.io.ByteArrayOutputStream
+import java.io.PrintStream
 
 
 @RunWith(Parameterized::class)
-class MainTest(val monthNumber: Int, val season: String) {
+class MainTest(private val monthNumber: Int, private val season: String) {
     companion object {
         @JvmStatic
         @Parameterized.Parameters
@@ -31,6 +28,10 @@ class MainTest(val monthNumber: Int, val season: String) {
                     arrayOf(12, "Зима")
             )
         }
+
+        private val console: PrintStream = System.out
+        private var bytesOutput: ByteArrayOutputStream = ByteArrayOutputStream()
+        private val printStreamNew: PrintStream = PrintStream(bytesOutput)
 
         @BeforeClass
         @JvmStatic
@@ -58,7 +59,7 @@ class MainTest(val monthNumber: Int, val season: String) {
 
     @Test
     fun testSpring() {
-        var actual = bytesOutput.toString(Charsets.UTF_8).trim()
+        val actual = bytesOutput.toString(Charsets.UTF_8).trim()
         assertEquals("Wrong: $monthNumber is Spring", season, actual)
     }
 }
