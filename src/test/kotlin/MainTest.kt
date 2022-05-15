@@ -49,7 +49,6 @@ class MainTest(private val monthNumber: Int, private val season: String) {
     @Before
     fun prepareTest() {
         bytesOutput.reset()
-        main("$monthNumber")
     }
 
     @After
@@ -58,8 +57,9 @@ class MainTest(private val monthNumber: Int, private val season: String) {
     }
 
     @Test
-    fun testSpring() {
-        val actual = bytesOutput.toString(Charsets.UTF_8).trim()
+    fun testSeason() {
+        main(monthNumber)
+        val actual = bytesOutput.toString(Charsets.UTF_8)
         assertEquals("Wrong: $monthNumber is Spring", season, actual)
     }
 }
