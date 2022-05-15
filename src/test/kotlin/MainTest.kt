@@ -8,24 +8,24 @@ import java.io.PrintStream
 
 
 @RunWith(Parameterized::class)
-class MainTest(private val monthNumber: Int, private val season: String) {
+class MainTest(private val monthNumber: String, private val season: String) {
     companion object {
         @JvmStatic
         @Parameterized.Parameters
         fun monthNumbers(): Collection<Array<Any>> {
             return listOf(
-                    arrayOf(1, "Зима"),
-                    arrayOf(2, "Зима"),
-                    arrayOf(3, "Весна"),
-                    arrayOf(4, "Весна"),
-                    arrayOf(5, "Весна"),
-                    arrayOf(6, "Лето"),
-                    arrayOf(7, "Лето"),
-                    arrayOf(8, "Лето"),
-                    arrayOf(9, "Осень"),
-                    arrayOf(10, "Осень"),
-                    arrayOf(11, "Осень"),
-                    arrayOf(12, "Зима")
+                    arrayOf("1", "Зима"),
+                    arrayOf("2", "Зима"),
+                    arrayOf("3", "Весна"),
+                    arrayOf("4", "Весна"),
+                    arrayOf("5", "Весна"),
+                    arrayOf("6", "Лето"),
+                    arrayOf("7", "Лето"),
+                    arrayOf("8", "Лето"),
+                    arrayOf("9", "Осень"),
+                    arrayOf("10", "Осень"),
+                    arrayOf("11", "Осень"),
+                    arrayOf("12", "Зима")
             )
         }
 
