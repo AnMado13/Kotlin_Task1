@@ -60,6 +60,6 @@ class MainTest(private val monthNumber: String, private val season: String) {
     fun testSeason() {
         main(monthNumber)
         val actual = bytesOutput.toString(Charsets.UTF_8)
-        assertEquals("Wrong: $monthNumber is Spring", season, actual)
+        assertEquals("Wrong: $monthNumber is $season", season, actual)
     }
 }
